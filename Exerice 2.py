@@ -11,7 +11,7 @@ class Complex :
     def __sub__(self,other):
         return Complex(self.__reel-other.__reel,self.__imaginaire-other.__imaginaire)
     def __mul__(self,other):
-        return Complex(self.__reel*other.__reel,self.__imaginaire*other.__imaginaire)
+        return Complex(self.__reel*other.__reel-self.__imaginaire*other.__imaginaire,self.__imaginaire*other.__reel+self.__reel*other.__imaginaire)
     def __truediv__(self,other):
         return Complex(self.__reel/other.__reel,self.__imaginaire/other.__imaginaire)
 
