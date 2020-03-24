@@ -13,7 +13,7 @@ class Complex :
     def __mul__(self,other):
         return Complex(self.__reel*other.__reel-self.__imaginaire*other.__imaginaire,self.__imaginaire*other.__reel+self.__reel*other.__imaginaire)
     def __truediv__(self,other):
-        return Complex(self.__reel/other.__reel,self.__imaginaire/other.__imaginaire)
+        return Complex(((self.__reel*other.__reel)+(self.__imaginaire*other.__imaginaire))/(other.__reel**2+other.__imaginaire**2),((self.__imaginaire*other.__reel)-self.__reel*other.__imaginaire)/(other.__reel**2+other.__imaginaire**2))
 
     def __eq__(self,other):
         return self.__reel==other.__reel and self.__imaginaire==other.__imaginaire
