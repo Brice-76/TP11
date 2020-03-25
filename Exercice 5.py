@@ -66,6 +66,8 @@ if __name__ == '__main__' :
     print(a)
     c=a*b
     print(c)
+    a*=b
+    print(a)
 
 
 
