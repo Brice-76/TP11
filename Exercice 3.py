@@ -28,17 +28,25 @@ class Rational :
             return str(self.__numerateur)+'/'+str(self.__denominateur)
     def __eq__(self,other):
         a=self.__euclide(other.__numerateur,other.__denominateur)
-        print(a)
         New_other=Rational(other.__numerateur/a,other.__denominateur/a)
         a=self.__euclide(self.__numerateur,self.__denominateur)
-        print(a)
         New_self=Rational(self.__numerateur/a,self.__denominateur/a)
         return New_other.__numerateur == New_self.__numerateur  and  New_other.__denominateur == New_self.__denominateur
 
+    def __ne__(self,other):
+        a=self.__euclide(other.__numerateur,other.__denominateur)
+        New_other=Rational(other.__numerateur/a,other.__denominateur/a)
+        a=self.__euclide(self.__numerateur,self.__denominateur)
+        New_self=Rational(self.__numerateur/a,self.__denominateur/a)
+        return New_other.__numerateur != New_self.__numerateur  or  New_other.__denominateur != New_self.__denominateur
+    def __lt__(self,other):
+        if isinstance(other,Rational) :
+           return other.__numerateur/other.__denominateur > self.__numerateur/self.__denominateur
 
 
-
-
+    def __gt__(self,other):
+        if isinstance(other,Rational) :
+           return other.__numerateur/other.__denominateur < self.__numerateur/self.__denominateur
 
 
 if __name__ == '__main__' :
@@ -48,9 +56,9 @@ if __name__ == '__main__' :
     d=a-b
     e=a*b
     f=a/b
-    print(a==b)
-    print(type(a))
     print(c,d,e,f)
+    print(a==b,a!=b)
+    print(c,a,c>a,c<a)
 
 
 
